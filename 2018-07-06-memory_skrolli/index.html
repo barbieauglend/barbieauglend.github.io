@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>Tinkering the memory - barbie&#39;s notes</title>
+  <meta charset="UTF-8">
+  <meta name="description" content>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/css/mdui.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1579559954004">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body class="mdui-drawer-body-left">
+  <div id="barbie-background">
+    <div class="barbie-bg" style="background-image: url(/images/barbie_uefi.png)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/" title="Thaís aka barbie" class="mdui-btn mdui-btn-icon"><img src="https://wiki.chaosdorf.de/images/a/ae/Barbieauglend.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="barbie-header">
+      <div class="barbie-drawer mdui-drawer" id="drawer">
+    <div class="barbie-avatar mdui-ripple">
+        <a href="/" title="Thaís aka barbie">
+            <img src="https://wiki.chaosdorf.de/images/a/ae/Barbieauglend.jpg" alt="Thaís aka barbie">
+        </a>
+    </div>
+    <div class="barbie-count">
+        <div><span>Articles</span> 16</div>
+        <div><span>Tags</span> 19</div>
+    </div>
+    <ul class="barbie-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/" title="home">
+             
+                <i class="fas fa-home"></i>
+              
+            <div class="mdui-list-item-content">
+                home
+            </div>
+        </a>
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/about.html" title="/me">
+             
+                <i class="fas fa-robot"></i>
+              
+            <div class="mdui-list-item-content">
+                /me
+            </div>
+        </a>
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/archives" title="posts">
+             
+                <i class="fas fa-scroll"></i>
+              
+            <div class="mdui-list-item-content">
+                posts
+            </div>
+        </a>
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/talks.html" title="irl">
+             
+                <i class="fas fa-video"></i>
+              
+            <div class="mdui-list-item-content">
+                irl
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="barbie-sidebar">
+  
+  <div class="barbie-widget-wrap">
+    <h3 class="barbie-widget-title">Social</h3>
+    <div class="barbie-widget barbie-social">
+        
+          <a class="mdui-ripple" href="https://twitter.com/barbieauglend" target="_blank" mdui-tooltip="{content: 'twitter'}" style="color: rgba(231, 106, 141, .85);background-color: ;">
+            
+                <i class="fab fa-twitter"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="https://github.com/barbieauglend" target="_blank" mdui-tooltip="{content: 'github'}" style="color: rgba(25, 23, 23, .85);background-color: ;">
+            
+                <i class="fab fa-github"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="https://www.linkedin.com/in/barbieauglend/" target="_blank" mdui-tooltip="{content: 'linkedin'}" style="color: rgba(231, 106, 141, .85);background-color: ;">
+            
+                <i class="fab fa-linkedin"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="https://steamcommunity.com/id/barbieauglend" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgba(25, 23, 23, .85);background-color: ;">
+            
+                <i class="fab fa-steam"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="mailto:contact@barbieauglend.re" target="_blank" mdui-tooltip="{content: 'envelope'}" style="color: rgba(231, 106, 141, .85);background-color: ;">
+            
+                <i class="fas fa-envelope"></i>
+            
+        </a>
+          <a class="mdui-ripple" href="/atom.xml" target="_blank" mdui-tooltip="{content: 'rss'}" style="color: rgba(25, 23, 23, .85);background-color: ;">
+            
+                <i class="fas fa-rss"></i>
+            
+        </a>
+    </div>
+</div>
+
+  
+  
+  <div class="barbie-widget-wrap">
+    <h3 class="barbie-widget-title">Recent Posts</h3>
+    <div class="barbie-widget">
+      <ul>
+        
+          <li>
+            <a href="/2019-08-15-system-managing-god/">SMMMmmmm</a>
+          </li>
+        
+          <li>
+            <a href="/2019-04-28-first-steps-into-the-bios/">Learning about the BIOS</a>
+          </li>
+        
+          <li>
+            <a href="/2018-10-03-logicvsmalware/">Logic &amp; binaries</a>
+          </li>
+        
+          <li>
+            <a href="/2018-08-03-firmware_101/">Firmware 101</a>
+          </li>
+        
+          <li>
+            <a href="/2018-07-23-hardware_101/">Hardware 101</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  
+  <div class="barbie-widget-wrap">
+    <h3 class="barbie-widget-title">Tag Cloud</h3>
+    <div class="barbie-widget tagcloud">
+      <a href="/tags/SMM/" style="font-size: 10px;">SMM</a> <a href="/tags/binary-analysis/" style="font-size: 15px;">binary analysis</a> <a href="/tags/bios/" style="font-size: 10px;">bios</a> <a href="/tags/firmware/" style="font-size: 10px;">firmware</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/low-level/" style="font-size: 12.5px;">low level</a> <a href="/tags/malware/" style="font-size: 10px;">malware</a> <a href="/tags/platform/" style="font-size: 12.5px;">platform</a> <a href="/tags/prolog/" style="font-size: 20px;">prolog</a> <a href="/tags/reversing/" style="font-size: 17.5px;">reversing</a> <a href="/tags/smt-solvers/" style="font-size: 10px;">smt solvers</a> <a href="/tags/talks/" style="font-size: 10px;">talks</a>
+    </div>
+  </div>
+
+  
+</aside>
+    <div class="barbie-copyright">
+        &copy; 2020 Thaís aka barbie
+         &amp;  <a href="https://barbieauglend.re/credits.html" target="_self">awesome people and stuff</a>
+    </div>
+</div><!-- .barbie-drawer -->
+
+  </div>
+  <div id="barbie-content">
+    <div class="barbie-primary">
+        <div class="barbie-post">
+    <div class="barbie-post-cover">
+        
+            <img src="/images/barbie_uefi.png">
+        
+      </div>
+      <div class="barbie-post-cover">
+        <h1>Tinkering the memory</h1>
+    </div>
+  <div class="barbie-post-meta">
+    <a><i class="far fa-calendar-alt"></i>2018-07-06</a>
+    <a><i class="fas fa-chart-area"></i>1.6k words</a>
+    <a><i class="fas fa-hourglass-half"></i> 10 minute(s)</a>
+    
+      <a class="fas fa-tag -link" href="/tags/binary-analysis/">binary analysis</a> <a class="fas fa-tag -link" href="/tags/reversing/">reversing</a>
+    
+  </div>
+  <article>
+    <hr>
+<p><strong>50 shades of the memory</strong></p>
+<hr>
+<h2 id="Reverse-Engineering"><a href="#Reverse-Engineering" class="headerlink" title="Reverse Engineering"></a>Reverse Engineering</h2><p>I have been writing lots of notes on PROLOG and logical programming and people keep asking me, why I never write about reverse engineering. So I decide to give it a try.</p>
+<p>I will start with stuff that I think are important for reverse engineering. It will be a bit different of the approaches I see on online tutorials, so I won’t be mad or sad if this notes are not helpful for you. BUT I will be REALLY happy if someone finds it useful!</p>
+<a id="more"></a>
+<h3 id="What-am-I-going-to-write-about-then"><a href="#What-am-I-going-to-write-about-then" class="headerlink" title="What am I going to write about then?"></a>What am I going to write about then?</h3><p>I know there are so many good sources to learn about all the basics of reverse engineering and uncountable RE101 online labs. They are all so nicely written and interesting, there is no need for me to do another one, right?</p>
+<p>So what I am going to do is to write some notes on things I wish I knew before, things I am learning now and things that I am curious about.</p>
+<h3 id="Memory-Analysis"><a href="#Memory-Analysis" class="headerlink" title="Memory Analysis"></a>Memory Analysis</h3><p>To perform memory analysis of an infected system is extremely complex and super exciting! To extract artifacts relevant to malware analysis or to perform some kind of forensic work for an incident response task is trilling me right now. I am still not sure how popular the topic is in the context of reverse engineering, but when analysing malware, a good memory analysis can help identifying the behaviour and explain how and what it was “touched” in the infected system by the malware.</p>
+<p>As always, before starting any kind of reverse engineering tasks, you need to define the questions to be answered. In the case of analysing memory, normally you want to find out:</p>
+<ul>
+<li>Which processes were running when the snapshot was taken?</li>
+<li>Which processes existed before the attack / infection?</li>
+<li>What was the end goal of the malware?</li>
+<li>Any suspicious DLL modules?</li>
+<li>And what about the strings in the process?</li>
+<li>And what about URLs or IP addresses associated with a process?</li>
+<li>And what about the files associated with a process?</li>
+<li>Can we dump / extract files associated to the process?</li>
+</ul>
+<h3 id="Starting-sLOWly"><a href="#Starting-sLOWly" class="headerlink" title="Starting sLOWly"></a>Starting sLOWly</h3><p>First of all, we should understand the memory. Lucky us, they are also built using the same logic gates you have everywhere else! There are two types of memory in our computer - one which is persistent and one that .. yeah..  In an higher level of abstraction, it is called <em>RAM (or random-access memory)</em>. So RAM is the working memory of a computer, it holds the information that is being executed by the computer like RIGHT NOW and as such it is a crucial component for a computer to operate (and a good place to act leaving not much traces).</p>
+<h3 id="The-logic-gates-of-the-Memory"><a href="#The-logic-gates-of-the-Memory" class="headerlink" title="The logic gates of the Memory"></a>The logic gates of the Memory</h3><p>To store information, the memory uses a latch called AND-OR-LATCH, which is pretty easy to understand:</p>
+<pre class="line-numbers language-text"><code class="language-text">   +----------------------------------+
+   |       ____                       |
+   +-)>- --\   `.           ____      |
+            |    >----------|   `.    |
+set--------/___.'    |`.    |     )---+---- output
+reset ---------------|  o---|___.'
+                     |.'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Of course, inside our computers, it is a bit more complicated - i.e. we have gates for Write-Enable, we store more than one bit of data and so on. But as you see, the basic idea is simple, you just need to scale it up ;) Adding another level up to what is called <em>gated latch</em>, and grouping them in a clever way, we get what most of you already know: Registers! Our 32-bit-registers are nothing more than 32 latches built together. The same for our 64-bit-register. The difference here is that they are not side by side - as they used to be in the old 8-bit-machines - but organized as a matrix. So for the 256-bit-memory we have the 16x16 Matrix. Got it? Good!</p>
+<blockquote>
+<p>Latch because the set value is persistent until a signal for setting or resetting is received.</p>
+</blockquote>
+<p>And how can we access the right row x column bit? We use MEMORY ADDRESSES! To convert the address into the right position, we use a component called multiplexer - which can also be built from logic gates! So to address 256-bit-memory, we use 8-bit-addresses - 4-bit for the row and 4-bit for the column. I could go on and scale up, but fast forwarding it, at some point we have 32-bit addresses, which can address a gigabyte of memory! The most important take away here is: with this address system, we are able to access ANY memory location at ANY time in ANY random order we may want / need.</p>
+<p>Trivia: an old SRAM board had 8 modules, each with 32 submodules, which one of them with 4 smaller modules and each of them comprises a matrix 128x64 bits, making a total of 32 768 x 32 x 8 bits ~ 8 million bits (aka 1 MB) in total!</p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>Lots of people don’t know how the OS takes care of the memory usage. And that’s good ;) I mean, how painful would it be if every single developer or even users needed to know it. This is one of the “magical” pieces of code hidden in the low level world. But for us, reverse engineers, it is very important to understand how it works from the inside out!</p>
+<p>To make it easier - you can imagine the memory as a large large large array for storing data, but this is not precise, since the data is not stored linearly and all this heap/stack blub is IMPLEMENTED! But… let’s continue…</p>
+<p>There are three different memory “types” - not 50 ;) - automatic, static and dynamic. I am going to talk about the <em>Stack</em> and the <em>Heap</em>. Simple explained one could say that in the Stack you find the local variables and in the heap you find variables that are kept alive until the end of the program, like global variables, constants and all the variables declared in C with the “static” keyword.</p>
+<p>It would look like this in the memory:</p>
+<pre class="line-numbers language-text"><code class="language-text">          +---------+
+          |         |   STACK
+          +---------+
+          |         |
+          +---------+
+          |   ...   |
+          |   ...   |
+          |   ...   |
+          |   ...   |
+          |         |
+          +---------+   HEAP
+          |         |
+          +---------+
+          |         |
+          +---------+
+          |         |
+          +---------+
+          |         |
+          +---------+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>There is more data being allocated in the memory when a process is loaded. This data can be, i.e.:</p>
+<ul>
+<li>.text - source code of the program</li>
+<li>.BSS (Block Started by Symbol) - not initialized a symbol</li>
+<li>.data - Initial data</li>
+<li>.heap - our global variables</li>
+<li>.stack - our local variables</li>
+</ul>
+<h3 id="The-HEAP"><a href="#The-HEAP" class="headerlink" title="The HEAP"></a>The HEAP</h3><p>I could not define it better myself, so here is a great definition from <a href="#EldadE">Eldad Eilam</a>:</p>
+<p>“A heap is a managed memory region that allows for the dynamic allocation of variable-sized blocks of memory in runtime. A program simply requests a block of a certain size and receives a pointer to the newly allocated block (assuming that enough memory is available). Heaps are managed either by software libraries that are shipped alongside programs or by the operating system.</p>
+<p>Heaps are typically used for variable-sized objects that are used by the program or for objects that are too big to be placed on the stack. For reversers, locating heaps in memory and properly identifying heap allocation and freeing routines can be helpful, because it contributes to the overall understanding of the program’s data layout. For instance, if you see a call to what you know is a heap allocation routine, you can follow the flow of the procedure’s return value throughout the program and see what is done with the allocated block, and so on. Also, having accurate size information on heap-allocated objects (block size is always passed as a parameter to the heap allocation routine) is another small hint towards program comprehension.”</p>
+<h3 id="The-STACK"><a href="#The-STACK" class="headerlink" title="The STACK"></a>The STACK</h3><p>Stacks are managed as simple LIFO (last in, first out) data structures, where items are “pushed” and “popped” onto them. Memory for stacks is typically allocated from the top down, meaning that the highest addresses are allocated and used first and that the stack grows “backwards” toward the lower addresses. When a function is called during runtime, a memory block is pilled over. In this block there are references to all variables created or allocated in the called function. When the function returns, the block is deallocated.</p>
+<p>As one can see, the variables allocated in the stack have a function lifetime.</p>
+<p>Each pilled block is called <em>Stack frame</em>. In each frame one has the variables passed to the function parameters, the return address and a pointer called <em>frame pointer</em>, that represents the former top of the pile. Also there is a area for variables created inside the function (local variables).</p>
+<pre class="line-numbers language-text"><code class="language-text">            +-----------+
+            | local     |
+            | variables |
+            +-----------+
+            | old top   |
+            | of pile   |  STACK
+            +-----------+  FRAME
+            | return    |
+            | address   |
+            +-----------+
+            | function  |
+            | params    |
+            +-----------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This way, for each called function we pilled a stack frame above the function pile. This top of pile always contain the lowest address of the memory. This way, any address lower than the address of the top of the pile is invalid and any address higher than it is a valid stack frame.</p>
+<pre class="line-numbers language-text"><code class="language-text">            lowest address
+            +-----------+ <---- stack pointer (sp) | local variables +-----------+ old top <---- frame (fp) +------ of pile return address function params +-----> | old top   |
+    +-------| of pile   |
+    |       +-----------+
+    |       | return    |
+    |       | address   |
+    |       +-----------+
+    |       | function  |
+    |       | params    |
+    |       +-----------+
+    |       | local     |
+    |       | variables |
+    |       +-----------+
+    +-----> | old top   |
+    +------ | of pile   |
+    |       +-----------+
+    |       | return    |
+    |       | address   |
+    |       +-----------+
+    |       | function  |
+    |       | params    |
+    |       +-----------+
+    |       | local     |
+    |       | variables |
+    |       +-----------+
+    +-----> | old top   |
+    +------ | of pile   |
+    |       +-----------+
+    |       | return    |
+    |       | address   |
+    |       +-----------+
+    |       | function  |
+    |       | params    |
+    |       +-----------+
+            highest address<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></----></code></pre>
+<p>The stack pointer points to the top of the pile. During the execution, this pointer can be updated, as we create more variables i.e. to make the movement in the stack frame, there is another pointer called frame pointer, responsible for storing a reference to the top of the pile before the function is called. Due to its position in the stack frame - unlike the stack pointer, its position is constant - it is easy to move to the parameters until the return address and local variables.</p>
+<p>The way the stack works is by “stacking” data into it, one “push” data in the stack, which puts the variable/data into the stack and moves the stack pointer down, you can’t remove an item from anywhere in the stack, you can always only remove (pop) the <em>last</em> item you added (pushed).</p>
+<h4 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h4><p><a name="EldadE"></a> <em>Eldad Eilam. 2005. Reversing: Secrets of Reverse Engineering. John Wiley &amp; Sons, Inc., New York, NY, USA.</em></p>
+
+  </article>
+  
+    
+  <br>
+<div class="barbie-post-copyright">
+  <i class="fas fa-info"></i>
+<strong>by </strong>Thaís aka barbie<br>
+</div>
+
+
+  
+</div>
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/js/mdui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"></script>
+
+
+<script src="/js/app.js?v=1579559954010"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js"></script>
+
+</body>
+
+</html>

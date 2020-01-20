@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>Firmware 101 - barbie&#39;s notes</title>
+  <meta charset="UTF-8">
+  <meta name="description" content>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/css/mdui.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1579559953981">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body class="mdui-drawer-body-left">
+  <div id="barbie-background">
+    <div class="barbie-bg" style="background-image: url(/images/barbie_uefi.png)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/" title="Thaís aka barbie" class="mdui-btn mdui-btn-icon"><img src="https://wiki.chaosdorf.de/images/a/ae/Barbieauglend.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="barbie-header">
+      <div class="barbie-drawer mdui-drawer" id="drawer">
+    <div class="barbie-avatar mdui-ripple">
+        <a href="/" title="Thaís aka barbie">
+            <img src="https://wiki.chaosdorf.de/images/a/ae/Barbieauglend.jpg" alt="Thaís aka barbie">
+        </a>
+    </div>
+    <div class="barbie-count">
+        <div><span>Articles</span> 16</div>
+        <div><span>Tags</span> 19</div>
+    </div>
+    <ul class="barbie-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/" title="home">
+             
+                <i class="fas fa-home"></i>
+              
+            <div class="mdui-list-item-content">
+                home
+            </div>
+        </a>
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/about.html" title="/me">
+             
+                <i class="fas fa-robot"></i>
+              
+            <div class="mdui-list-item-content">
+                /me
+            </div>
+        </a>
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/archives" title="posts">
+             
+                <i class="fas fa-scroll"></i>
+              
+            <div class="mdui-list-item-content">
+                posts
+            </div>
+        </a>
+        
+        <a class="barbie-list-item mdui-list-item mdui-ripple" href="/talks.html" title="irl">
+             
+                <i class="fas fa-video"></i>
+              
+            <div class="mdui-list-item-content">
+                irl
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="barbie-sidebar">
+  
+  <div class="barbie-widget-wrap">
+    <h3 class="barbie-widget-title">Social</h3>
+    <div class="barbie-widget barbie-social">
+        
+          <a class="mdui-ripple" href="https://twitter.com/barbieauglend" target="_blank" mdui-tooltip="{content: 'twitter'}" style="color: rgba(231, 106, 141, .85);background-color: ;">
+            
+                <i class="fab fa-twitter"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="https://github.com/barbieauglend" target="_blank" mdui-tooltip="{content: 'github'}" style="color: rgba(25, 23, 23, .85);background-color: ;">
+            
+                <i class="fab fa-github"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="https://www.linkedin.com/in/barbieauglend/" target="_blank" mdui-tooltip="{content: 'linkedin'}" style="color: rgba(231, 106, 141, .85);background-color: ;">
+            
+                <i class="fab fa-linkedin"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="https://steamcommunity.com/id/barbieauglend" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgba(25, 23, 23, .85);background-color: ;">
+            
+                <i class="fab fa-steam"></i>
+          
+        </a>
+          <a class="mdui-ripple" href="mailto:contact@barbieauglend.re" target="_blank" mdui-tooltip="{content: 'envelope'}" style="color: rgba(231, 106, 141, .85);background-color: ;">
+            
+                <i class="fas fa-envelope"></i>
+            
+        </a>
+          <a class="mdui-ripple" href="/atom.xml" target="_blank" mdui-tooltip="{content: 'rss'}" style="color: rgba(25, 23, 23, .85);background-color: ;">
+            
+                <i class="fas fa-rss"></i>
+            
+        </a>
+    </div>
+</div>
+
+  
+  
+  <div class="barbie-widget-wrap">
+    <h3 class="barbie-widget-title">Recent Posts</h3>
+    <div class="barbie-widget">
+      <ul>
+        
+          <li>
+            <a href="/2019-08-15-system-managing-god/">SMMMmmmm</a>
+          </li>
+        
+          <li>
+            <a href="/2019-04-28-first-steps-into-the-bios/">Learning about the BIOS</a>
+          </li>
+        
+          <li>
+            <a href="/2018-10-03-logicvsmalware/">Logic &amp; binaries</a>
+          </li>
+        
+          <li>
+            <a href="/2018-08-03-firmware_101/">Firmware 101</a>
+          </li>
+        
+          <li>
+            <a href="/2018-07-23-hardware_101/">Hardware 101</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  
+  <div class="barbie-widget-wrap">
+    <h3 class="barbie-widget-title">Tag Cloud</h3>
+    <div class="barbie-widget tagcloud">
+      <a href="/tags/SMM/" style="font-size: 10px;">SMM</a> <a href="/tags/binary-analysis/" style="font-size: 15px;">binary analysis</a> <a href="/tags/bios/" style="font-size: 10px;">bios</a> <a href="/tags/firmware/" style="font-size: 10px;">firmware</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/low-level/" style="font-size: 12.5px;">low level</a> <a href="/tags/malware/" style="font-size: 10px;">malware</a> <a href="/tags/platform/" style="font-size: 12.5px;">platform</a> <a href="/tags/prolog/" style="font-size: 20px;">prolog</a> <a href="/tags/reversing/" style="font-size: 17.5px;">reversing</a> <a href="/tags/smt-solvers/" style="font-size: 10px;">smt solvers</a> <a href="/tags/talks/" style="font-size: 10px;">talks</a>
+    </div>
+  </div>
+
+  
+</aside>
+    <div class="barbie-copyright">
+        &copy; 2020 Thaís aka barbie
+         &amp;  <a href="https://barbieauglend.re/credits.html" target="_self">awesome people and stuff</a>
+    </div>
+</div><!-- .barbie-drawer -->
+
+  </div>
+  <div id="barbie-content">
+    <div class="barbie-primary">
+        <div class="barbie-post">
+    <div class="barbie-post-cover">
+        
+            <img src="/images/barbie_uefi.png">
+        
+      </div>
+      <div class="barbie-post-cover">
+        <h1>Firmware 101</h1>
+    </div>
+  <div class="barbie-post-meta">
+    <a><i class="far fa-calendar-alt"></i>2018-08-21</a>
+    <a><i class="fas fa-chart-area"></i>1.2k words</a>
+    <a><i class="fas fa-hourglass-half"></i> 7 minute(s)</a>
+    
+      <a class="fas fa-tag -link" href="/tags/firmware/">firmware</a> <a class="fas fa-tag -link" href="/tags/reversing/">reversing</a>
+    
+  </div>
+  <article>
+    <hr>
+<p><strong>Getting the Code</strong></p>
+<hr>
+<h1 id="Extracting-the-Firmware"><a href="#Extracting-the-Firmware" class="headerlink" title="Extracting the Firmware"></a>Extracting the Firmware</h1><p>In the <a href="/2018-07-23-hardware_101">last post</a>, we discussed how to find important information about how to communicate with the device’s. In this post, we are going to describe the standard approach of getting the code we want to reverse and use the information we collected before.</p>
+<a id="more"></a>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>One of the most important things to think about when doing reverse engineering is to know what questions you want to answer. If you start looking for ANY kind of information, data or piece of code, you will end with lots of knowledge on stuff you have no idea what it is. Yes, you will drown in a lake of information! So, before starting trying to understand everything, ask the most important questions for you and focus on that. Try to keep your way, and check regularly that you are not deep in the mud.</p>
+<p>I often use what I call “Jack the Ripper” approach: do it calmly, piece by piece and try to enjoy it :) Start looking for specifications online about the communication protocol, about the board itself, about the components, try to understand the undocumented part, double check the documented part. When you’re done, go for some critical system or code, like authentication algorithm or password generator / checker, anything that looks like it’s handling juicy data. Embedded systems security is not that advanced, but still all devices need some kind of identification mechanism. These IDs should be unique for each hardware, but at the same time generated in production. They should be able to authenticate somewhere and also be present in the firmware, which is supposed to be the same for all devices. Now, think about solving this problem for large scale production?</p>
+<h2 id="Talking-with-the-system"><a href="#Talking-with-the-system" class="headerlink" title="Talking with the system"></a>Talking with the system</h2><p>The best part and the essential difference while reversing hardware is the bare metal in your hand. The electrical signals. It is the possibility of measuring everything and actually see how the data flows. Adding some LEDs in between never gets boring and it is beautiful every single time! If this fact alone make your heart beats a bit faster, same here! It is another kick, way stronger than a piece of code :) Without much information and with the aid of some cheap equipment, it is possible to get lots of information. We already know that with a simple logic analyzer, we can sniff the data traffic. With a more expensive lab however, it is possible to measure the booting energy consumption and from there, guess with great precision even private keys. This is not magic - it is Science! Physics ftw \m/ (btw, remember about the “ideal conditions” you learn at school - they will never happen!)</p>
+<h2 id="Data-flow-in-the-PCB"><a href="#Data-flow-in-the-PCB" class="headerlink" title="Data flow in the PCB"></a>Data flow in the PCB</h2><p>What is the point of having data if you can not read, write or even transfer it someway? Having a good look at your board should be enough to give you an idea how the data flows through it. You can take the IC as a starting point and follow the PCB tracks to create your own map. Another important information: most of the microcontrollers have a datasheet living on the Internet, so don’t be shy and go duck duck it. They are publicly available and have all the technical information needed for the beginning - stuff like pinouts, communication protocols used, the voltage, and so on). It is always worth spending some time having a look at your hardware components and exploring the online catalogue.</p>
+<blockquote>
+<p><a href="https://twitter.com/_kylma" target="_blank" rel="noopener">Kylma</a> added a link to some <a href="https://www.eevblog.com/forum/beginners/datasheet-database/" target="_blank" rel="noopener">datasheets</a></p>
+</blockquote>
+<p>Let’s start the hands-on now in the budget form:</p>
+<h2 id="Accessing-the-code"><a href="#Accessing-the-code" class="headerlink" title="Accessing the code"></a>Accessing the code</h2><p>Dumping the code from the <a href="https://en.wikipedia.org/wiki/Integrated_circuit" target="_blank" rel="noopener">Integrated Circuit</a> - short <strong>IC</strong> - and unpacking it are the steps described here. This can be the easiest and the most complex part of the process. You don’t need any expensive device and there are plenty of freeware tools available (many also open source!).</p>
+<p>As I stated before, most of the devices have datasheets available online. Find a datasheet for your IC enables you to skip the process of identifying the pinouts \m/ Now, we need to identify how the communication works on the board. Here we are actively looking for signals which could interfere in the data dumping / reading. How to avoid the data interference during the dumping depends highly on the device you have in your hands.</p>
+<h3 id="Do-you-mean-I-need-to-desolder"><a href="#Do-you-mean-I-need-to-desolder" class="headerlink" title="Do you mean I need to desolder?"></a>Do you mean I need to desolder?</h3><p>This would be the obvious way to go, right? If you don’t want other components of the board interfering the signal received from the IC you are analyzing, disconnect it from the board and go go go! This method gives you total control of the IC and it is lots of fun! But… this process requires some experience and TIME. The idea here is to keep it as simple as it gets and as cheap as it gets, so try to avoid this situation and use your “creativity”. It is possible to create something to monitor the other devices on the board and supply power just to your IC? This is just one side idea :)</p>
+<p>As soon as your IC is isolated, connect it to a power supply and a computer, so that you can start reading the memory, block per block. This part can take some time, so don’t think much and go grab a coffee :)</p>
+<h2 id="Dumping-the-code"><a href="#Dumping-the-code" class="headerlink" title="Dumping the code"></a>Dumping the code</h2><p>To create your own tools can be really fun, but it costs time and it is way easier when you actually know what you are doing ;) So if it is your first hardware, I would recommend you to use some nice open source projects available out there.</p>
+<p>To dump the flash, I really like <a href="https://www.flashrom.org/Flashrom" target="_blank" rel="noopener">flashrom</a> which is indeed one of the most popular tools for it. It is easy to use, a bit buggy but it works in my Rasperry Pi :) <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/file.html" target="_blank" rel="noopener">file</a> is always useful and I start nothing before at least having an idea about the fie format I am dealing with. So if file doesn’t work, you can always go back to the unfamous <a href="https://github.com/ReFirmLabs/binwalk" target="_blank" rel="noopener">binwalk</a>.</p>
+<p>From the binwalk logs, it is possible to recover important addresses. With them you can use <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/dd.html" target="_blank" rel="noopener">dd</a> to split the binaries into specific segments. The dd command needs some arguments like <em>bs</em> (block size), <em>skip</em> (offset) and <em>size</em>. You are probably going to have at least three segments:</p>
+<ul>
+<li>bootloader.bin: often not encrypted, used directly by the microcontroller so yeah…</li>
+<li>kernel.bin: if you are lucky, it will be some kind of Linux Kernel. This is the code which controls the bare metal :) Often the most fun one to reverse and often compressed. Again, use file to find out the best way to decompress it.</li>
+<li>rootfs.bin: this is the file system containing all the system files, configuration files and also system binaries. Again, use file to find out the best way to decompress it.</li>
+</ul>
+<p>If the image is encrypted, decrypt it using <a href="https://github.com/hyc/fcrackzip" target="_blank" rel="noopener">fcrackzip</a>.</p>
+<h4 id="Cheatsheet"><a href="#Cheatsheet" class="headerlink" title="Cheatsheet"></a>Cheatsheet</h4><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">dd</span> if<span class="token operator">=</span>image.zip of<span class="token operator">=</span>firmware.zip bs<span class="token operator">=</span>64 skip<span class="token operator">=</span>1 <span class="token comment" spellcheck="true"># extract firmware images</span>
+$ fcrackzip <span class="token function">file</span> <span class="token comment" spellcheck="true"># cracks zip file</span>
+$ binwalk -e file.bin <span class="token comment" spellcheck="true"># extract compress bin images</span>
+$ unyaffs <span class="token function">file</span> <span class="token comment" spellcheck="true"># extract .unyaffs2 filesystem mount points</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Post written originally in pt_br as a <a href="https://www.mentebinaria.com.br/artigos/revertendo-firmware-conversando-com-o-seu-device-r37/" target="_blank" rel="noopener">guest post to Mente Binaria</a> and it wouldn’t be here without the precious help of <a href="https://twitter.com/_kylma" target="_blank" rel="noopener">Kylma</a>.</p>
+
+  </article>
+  
+    
+  <br>
+<div class="barbie-post-copyright">
+  <i class="fas fa-info"></i>
+<strong>by </strong>Thaís aka barbie<br>
+</div>
+
+
+  
+</div>
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/js/mdui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"></script>
+
+
+<script src="/js/app.js?v=1579559953985"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/barbieauglend
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://barbieauglend.re
+  * I am barbieauglend (https://keybase.io/barbieauglend) on keybase.
+  * I have a public key ASDRFWKiMmioixfXd5C7xlvWEf0B4Ss3wlXe152NOuVwEAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012059abc01b3f4193c8cae96b8026553b3376093420ee461ba06e3e18933019e34f0a",
+      "host": "keybase.io",
+      "kid": "0120d11562a23268a88b17d77790bbc65bd611fd01e12b37c255ded79d8d3ae570100a",
+      "uid": "ff370f613ce35258d5096100b97b6c19",
+      "username": "barbieauglend"
+    },
+    "merkle_root": {
+      "ctime": 1568378404,
+      "hash": "4a16aa78ad87f9c1929f72df53342096f8db0ced93342f6cc0ec8e0d965f63f8c3d04505cc4ebeaf6d4459a9e0289d6d8b5f977733b58b5d2bc830586498d897",
+      "hash_meta": "b7b5416f62fdcd7901e67b9bfd10c3a4a3a58b535613d858ce95bacccf534816",
+      "seqno": 7149327
+    },
+    "service": {
+      "entropy": "D8/jjUTu98RvRKKA1u4ao7r5",
+      "hostname": "barbieauglend.re",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.4.1"
+  },
+  "ctime": 1568378415,
+  "expire_in": 504576000,
+  "prev": "4a3943e7f70b4b3422e432c1aa3a2051c5954736c62eb19491b89f9bb15d89c7",
+  "seqno": 62,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg0RViojJoqIsX13eQu8Zb1hH9AeErN8JV3tedjTrlcBAKp3BheWxvYWTESpcCPsQgSjlD5/cLSzQi5DLBqjogUcWVRzbGLrGUkbifm7FdicfEIM+3/k6Su2SNOI6v3etb4ObCxkDfyF2WHgsOVYteOkPQAgHCo3NpZ8RABTd0INl/xxTN1hnrwFdp0J6Saa92D8+gpjN0tF0bFgUcrm0YxZ3TnFGKmPfDDyeHGRPCK6ObNaBIBiRxW6udDqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEmb86NX7DiVs2Q7d05rx1mhId4FDVj30zapcbFBFZI2o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/barbieauglend
+
+==================================================================
