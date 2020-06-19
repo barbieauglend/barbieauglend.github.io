@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://barbieauglend.re/"/>
-  <updated>2020-06-06T01:33:28.493Z</updated>
+  <updated>2020-06-19T18:32:33.387Z</updated>
   <id>https://barbieauglend.re/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How Do I Do Research?</title>
+    <link href="https://barbieauglend.re/2020-06-19-how-to-research/"/>
+    <id>https://barbieauglend.re/2020-06-19-how-to-research/</id>
+    <published>2020-06-19T07:18:23.000Z</published>
+    <updated>2020-06-19T18:32:33.387Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Much has been done in the research field about conducting research. This is a broad and diverse area of information science. The
+        
+      
+    
+    </summary>
+    
+    
+      <category term="research" scheme="https://barbieauglend.re/tags/research/"/>
+    
+      <category term="science" scheme="https://barbieauglend.re/tags/science/"/>
+    
+      <category term="misc" scheme="https://barbieauglend.re/tags/misc/"/>
+    
+  </entry>
   
   <entry>
     <title>SMMMmmmm - when root is not enough</title>
@@ -82,9 +110,9 @@
     </summary>
     
     
-      <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
-    
       <category term="binary analysis" scheme="https://barbieauglend.re/tags/binary-analysis/"/>
+    
+      <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
     
       <category term="smt solvers" scheme="https://barbieauglend.re/tags/smt-solvers/"/>
     
@@ -111,26 +139,6 @@
       <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
     
       <category term="firmware" scheme="https://barbieauglend.re/tags/firmware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hardware 101 - I have this $device... and now?</title>
-    <link href="https://barbieauglend.re/2018-07-23-hardware_101/"/>
-    <id>https://barbieauglend.re/2018-07-23-hardware_101/</id>
-    <published>2018-07-22T22:10:20.000Z</published>
-    <updated>2020-06-06T01:37:37.689Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Understanding-your-device&quot;&gt;&lt;a href=&quot;#Understanding-your-device&quot; class=&quot;headerlink&quot; title=&quot;Understanding your device&quot;&gt;&lt;/a&gt;Understanding your device&lt;/h2&gt;&lt;h3 id=&quot;First-of-all-Look-for-Debug-Ports&quot;&gt;&lt;a href=&quot;#First-of-all-Look-for-Debug-Ports&quot; class=&quot;headerlink&quot; title=&quot;First of all: Look for Debug Ports&quot;&gt;&lt;/a&gt;First of all: Look for Debug Ports&lt;/h3&gt;&lt;p&gt;In fact, this should be the step zero step. I mean, you’ve got a wonderful piece of hardware but how do you communicate with it? To find all the available connections, I usually make a list of all physical ports I can access, I count all the pins I see and so on, always keeping in my mind that I want a &lt;em&gt;debug port&lt;/em&gt;. The debug port is usually the one used to program the device at the factory and is sometimes left available for technical support and repair reasons.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
-    
-      <category term="hardware" scheme="https://barbieauglend.re/tags/hardware/"/>
     
   </entry>
   
