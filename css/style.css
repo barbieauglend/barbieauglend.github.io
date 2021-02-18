@@ -32,7 +32,6 @@ body {
 
 .body_container {
   padding: 0 60px;
-  max-width: 1150px;
   margin: 0 auto; }
 
 .content_container {
@@ -237,7 +236,8 @@ div {
     .post .post-content h3 {
       margin: 1.4em 0 1.1em; }
     .post .post-content pre code {
-      padding: 0 2em; }
+      padding: 0 2em;
+      word-wrap: break-word; }
     .post .post-content p {
       margin: 0 0 1.234em;
       word-break: break-word;
