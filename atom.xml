@@ -110,9 +110,9 @@
     </summary>
     
     
-      <category term="binary analysis" scheme="https://barbieauglend.re/tags/binary-analysis/"/>
-    
       <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
+    
+      <category term="binary analysis" scheme="https://barbieauglend.re/tags/binary-analysis/"/>
     
       <category term="smt solvers" scheme="https://barbieauglend.re/tags/smt-solvers/"/>
     
@@ -136,9 +136,9 @@
     </summary>
     
     
-      <category term="firmware" scheme="https://barbieauglend.re/tags/firmware/"/>
-    
       <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
+    
+      <category term="firmware" scheme="https://barbieauglend.re/tags/firmware/"/>
     
   </entry>
   
