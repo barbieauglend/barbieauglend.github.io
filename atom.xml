@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>barbie&#39;s notes</title>
+  
+  <subtitle>my not-professional-at-all blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://barbieauglend.re/"/>
+  <updated>2020-06-19T18:39:39.344Z</updated>
+  <id>https://barbieauglend.re/</id>
+  
+  <author>
+    <name>Thaís aka barbie</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How Do I Do Research?</title>
+    <link href="https://barbieauglend.re/2020-06-19-how-to-research/"/>
+    <id>https://barbieauglend.re/2020-06-19-how-to-research/</id>
+    <published>2020-06-19T07:18:23.000Z</published>
+    <updated>2020-06-19T18:39:39.344Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Much has been done in the research field about conducting research. This is a broad and diverse area of information science. The
+        
+      
+    
+    </summary>
+    
+    
+      <category term="research" scheme="https://barbieauglend.re/tags/research/"/>
+    
+      <category term="science" scheme="https://barbieauglend.re/tags/science/"/>
+    
+      <category term="misc" scheme="https://barbieauglend.re/tags/misc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SMMMmmmm - when root is not enough</title>
+    <link href="https://barbieauglend.re/2019-08-15-system-managing-god/"/>
+    <id>https://barbieauglend.re/2019-08-15-system-managing-god/</id>
+    <published>2019-08-14T22:18:23.000Z</published>
+    <updated>2020-06-06T01:33:28.493Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Swimming-Diving-Hopefully-not-Drowning&quot;&gt;&lt;a href=&quot;#Swimming-Diving-Hopefully-not-Drowning&quot; class=&quot;headerlink&quot; title=&quot;Swimming, Diving, Hopefully not Drowning!&quot;&gt;&lt;/a&gt;Swimming, Diving, Hopefully not Drowning!&lt;/h2&gt;&lt;p&gt;I got a super nice project, and for that I needed to learn how the SMM really works. Again I started dipping my toes in this ocean of knowledge and I hope I don’t get too excited and drown myself before even getting started ;) For the people who are not sure if they want to read all this:&lt;/p&gt;
+&lt;h2 id=&quot;TL-DR&quot;&gt;&lt;a href=&quot;#TL-DR&quot; class=&quot;headerlink&quot; title=&quot;TL;DR&quot;&gt;&lt;/a&gt;TL;DR&lt;/h2&gt;&lt;p&gt;In SMM, it is possible to modify SMM saved execution context. SMM also sets its own IDT, it is initialized by the BIOS (DXE) and tons of cool stuff.
+    
+    </summary>
+    
+    
+      <category term="low level" scheme="https://barbieauglend.re/tags/low-level/"/>
+    
+      <category term="platform" scheme="https://barbieauglend.re/tags/platform/"/>
+    
+      <category term="SMM" scheme="https://barbieauglend.re/tags/SMM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning about the BIOS</title>
+    <link href="https://barbieauglend.re/2019-04-28-first-steps-into-the-bios/"/>
+    <id>https://barbieauglend.re/2019-04-28-first-steps-into-the-bios/</id>
+    <published>2019-04-27T22:18:23.000Z</published>
+    <updated>2020-06-06T01:34:37.703Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;or why do we discuss how to authenticate the user to the machine, but never the machine to the user&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;My-path-into-low-level-security&quot;&gt;&lt;a href=&quot;#My-path-into-low-level-security&quot; class=&quot;headerlink&quot; title=&quot;My path into low-level security&quot;&gt;&lt;/a&gt;My path into low-level security&lt;/h2&gt;&lt;p&gt;I have been away for a while as you may or may not have noticed and the reason for that is a great one! I am learning new things and as usual I will try to share my notes here. They are going to be chaotic and I can not give you any guarantee that I got it right, so please let me know if something looks weird ;)
+    
+    </summary>
+    
+    
+      <category term="low level" scheme="https://barbieauglend.re/tags/low-level/"/>
+    
+      <category term="platform" scheme="https://barbieauglend.re/tags/platform/"/>
+    
+      <category term="bios" scheme="https://barbieauglend.re/tags/bios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logic &amp; binaries</title>
+    <link href="https://barbieauglend.re/2018-10-03-logicvsmalware/"/>
+    <id>https://barbieauglend.re/2018-10-03-logicvsmalware/</id>
+    <published>2018-10-04T22:18:23.000Z</published>
+    <updated>2020-06-06T01:36:17.092Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/logicVSmalware/slides_01_1280x720.png&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;What-is-this-post-about&quot;&gt;&lt;a href=&quot;#What-is-this-post-about&quot; class=&quot;headerlink&quot; title=&quot;What is this post about?&quot;&gt;&lt;/a&gt;What is this post about?&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;Malicious codes are implemented to stay hidden during the infection and operation, preventing their removal and the analysis of the code. Software analysis is a critical point in dealing with malware, since most samples employ some sort of packing or obfuscation techniques in order to thwart analysis.
+    
+    </summary>
+    
+    
+      <category term="binary analysis" scheme="https://barbieauglend.re/tags/binary-analysis/"/>
+    
+      <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
+    
+      <category term="smt solvers" scheme="https://barbieauglend.re/tags/smt-solvers/"/>
+    
+      <category term="malware" scheme="https://barbieauglend.re/tags/malware/"/>
+    
+      <category term="talks" scheme="https://barbieauglend.re/tags/talks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Firmware 101 - How to get the code</title>
+    <link href="https://barbieauglend.re/2018-08-03-firmware_101/"/>
+    <id>https://barbieauglend.re/2018-08-03-firmware_101/</id>
+    <published>2018-08-20T22:10:20.000Z</published>
+    <updated>2020-06-06T01:36:47.487Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Extracting-the-Firmware&quot;&gt;&lt;a href=&quot;#Extracting-the-Firmware&quot; class=&quot;headerlink&quot; title=&quot;Extracting the Firmware&quot;&gt;&lt;/a&gt;Extracting the Firmware&lt;/h2&gt;&lt;p&gt;In the &lt;a href=&quot;/2018-07-23-hardware_101&quot;&gt;last post&lt;/a&gt;, we discussed how to find important information about how to communicate with the device’s. In this post, we are going to describe the standard approach of getting the code we want to reverse and use the information we collected before.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="firmware" scheme="https://barbieauglend.re/tags/firmware/"/>
+    
+      <category term="reversing" scheme="https://barbieauglend.re/tags/reversing/"/>
+    
+  </entry>
+  
+</feed>

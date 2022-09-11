@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>/me on reverse engineering | barbie's notes</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.1"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">/me on reverse engineering</h1><a id="logo" href="/.">barbie's notes</a><p class="description">my not-professional-at-all blog</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> start</i></a><a href="/archives/"><i class="fa fa-archive"> oldies</i></a><a href="/about/"><i class="fa fa-user"> /me</i></a><a href="/talks/"><i class="fa fa-users"> IRL</i></a><a href="/credits/"><i class="fa fa-heart"> credits</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">/me on reverse engineering</h1><div class="post-meta">2018-07-19<span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 783</span><span class="post-meta-item-text"> Words</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i><span class="post-count"> 4</span><span class="post-meta-item-text"> Minutes</span></span></span></div><div class="post-content"><h2 id="Work-in-Progress-my-first-steps"><a href="#Work-in-Progress-my-first-steps" class="headerlink" title="Work in Progress - my first steps!"></a>Work in Progress - my first steps!</h2><h3 id="Notes-on-fundamentals-for-reverse-engineers"><a href="#Notes-on-fundamentals-for-reverse-engineers" class="headerlink" title="Notes on fundamentals for reverse engineers"></a>Notes on fundamentals for reverse engineers</h3><p>I remember the day when a friend told me that “this is fun!”- thingy we spend time doing on our weekends had a name: Reverse Engineering. I got curious about information security just after that! I really enjoy understanding deeper low-level internals of $thing. And when I decided to take a more “researcher-like” approach on it, I felt like diving into the a software developer’s perspective of computer architecture. I am planning to cover the same topic from another perspective, which is for me more comfortable and logical - I am coming from the hardware level back to software. There are plenty of extremely well written RE101 tutorials using a pletora of different tools. However not so many explaining how to get the code to analyze in first place or giving a general idea on reverse any kind of binary.</p>
+<a id="more"></a>
+<h2 id="Why-do-I-do-what-I-do"><a href="#Why-do-I-do-what-I-do" class="headerlink" title="Why do I do what I do?"></a>Why do I do what I do?</h2><p>People ask me a lot how to become a good malware researcher and / or reverse engineer.</p>
+<p>First things first, they are not the same thing. (At least, not for me!). I know great malware researchers who don’t do much reverse engineering and also great reversers who are not working with malware at all. I like the mix. I get bored really fast and I love puzzles: having malware code to reverse is feeding my curiosity most of the time and the deep reversing and static analysis hours keep me alive.</p>
+<p>Maybe a good beginning would be finding which of these things makes you the happiest :)</p>
+<p>If you are not sure you want to be a malware researcher AND reverse engineer, give it a try. There are lots of resources online, just set up a lab, download a sample and do it. Did you like it? Or did you have the feeling of “Äh maybe later…” already by setting up the environment?</p>
+<h3 id="Bullet-points-of-things-I-am-going-to-MAYBE-write-about"><a href="#Bullet-points-of-things-I-am-going-to-MAYBE-write-about" class="headerlink" title="Bullet points of things I am going to (MAYBE) write about"></a>Bullet points of things I am going to (MAYBE) write about</h3><h4 id="Static-Analysis"><a href="#Static-Analysis" class="headerlink" title="Static Analysis"></a>Static Analysis</h4><ul>
+<li>ASM syntax flavors<ul>
+<li>Intel-syntax: <instruction> <destination> <source></destination></instruction></li>
+<li>AT&amp;T syntax: <instruction> <source> <destination><ul>
+<li>AT&amp;T: (%)before register name and ($)before numbers. Parentheses are used instead of brackets.</li>
+<li>AT&amp;T: A suffix is added to instructions to define the operand size:<ul>
+<li>q — quad (64 bits)</li>
+<li>l — long (32 bits)</li>
+<li>w — word (16 bits)</li>
+<li>b — byte (8 bits)</li>
+</ul>
+</li>
+</ul>
+</destination></instruction></li>
+</ul>
+</li>
+<li>General Purpose / Memory Registers<ul>
+<li>Aimed at doing arithmetic operations</li>
+<li>EAX results register (accumulator)</li>
+<li>EBX pointer to data</li>
+<li>ECX counter</li>
+<li>EDX pointer to data</li>
+<li>ESP stack pointer register. Points to the top of the stack.</li>
+<li>EBP stack data pointer. It is a registry used to calculate addresses relative to other addresses</li>
+<li>ESI source index</li>
+<li>EDI destination index</li>
+</ul>
+</li>
+<li>Control Registers<ul>
+<li>The stack grows down the address space: as more data is added to the stack, it is added at increasingly lower address value</li>
+<li>The order of the bytes is reversed because IA32 machines are little-endian, reverse the address to use in the payload</li>
+<li>They control the function of the processor<ul>
+<li>EIP, extended instruction pointer. Points to the next instruction to be executed</li>
+<li>NOP (0x90) useful for shellcodes to add the padding. Higher chance of guessing the right address</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Compilation-Process"><a href="#Compilation-Process" class="headerlink" title="Compilation Process"></a>Compilation Process</h3><p><img src="/images/compilers.jpg" alt></p>
+<pre class="line-numbers language-text"><code class="language-text">+--------                      +-------+         X
+| +---------+                  | +-------+      X X
+| |         |   +----------+   | |       |     X   X     +--------+
+| |  source |   |          |   | | obj   |    X     X    |        |
+| |  code   +---> compiler +---> | file  +---> linker+---> binary |
++ |         |   |          |   | |       |    X     X    |        |
+  |         |   +----------+   + |       |     X   X     +--------+
+  +---------+                    +-------+      X X
+                                                 X<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Ethical-and-Legal-aspects"><a href="#Ethical-and-Legal-aspects" class="headerlink" title="Ethical and Legal aspects"></a>Ethical and Legal aspects</h3><p><img src="/images/legal.png" alt></p>
+<ul>
+<li>REMEMBER copyright laws are different from country to country<br>Reverse Engineering is legal mostly only in few specific cases, it is not included in black box testing and reverse engineering spyware/adware/greyware is illegal in most countries! So if you are not sure, don’t do it!</li>
+</ul>
+<h4 id="Legal-uses-of-RE"><a href="#Legal-uses-of-RE" class="headerlink" title="Legal uses of RE"></a>Legal uses of RE</h4><p><img src="/images/legal_yes.jpg" alt></p>
+<p>It is legal to reverse engineer $thing in case you want to recover your own source code, to recover data from legacy systems or formats. It is also legal for security research and I am not just talking about vulnerability or malware research but also in cases of copyright infringement investigations for example.</p>
+<h4 id="Illegal-activities"><a href="#Illegal-activities" class="headerlink" title="Illegal activities"></a>Illegal activities</h4><p><img src="/images/legal_not.jpg" alt></p>
+<ul>
+<li>to RE $thing and sell a competing product</li>
+<li>to crack copy protections</li>
+<li>to distribute a cracked version / registration for copyrighted software</li>
+<li>to gain unauthorized access to any computer system</li>
+</ul>
+<h3 id="My-tools-of-choice"><a href="#My-tools-of-choice" class="headerlink" title="My tools of choice"></a>My tools of choice</h3><ul>
+<li>HexEditor: HIEW, HxD</li>
+<li>disassembler: IDA, R2</li>
+<li>Debugger: OllyDbg, WinDBG, Bochs</li>
+<li>Scripting: Python</li>
+</ul>
+<h3 id="If-you-are-still-here-…"><a href="#If-you-are-still-here-…" class="headerlink" title="If you are still here …"></a>If you are still here …</h3><p>… it means, you want to keep the path? :) AMAZE!! There are lots of RE101 labs and resources like:</p>
+<ul>
+<li><a href="https://www.amazon.com/Practical-Malware-Analysis-Hands--Dissecting/dp/1593272901/ref=sr_1_1?s=books&ie=UTF8&qid=1347658195&sr=1-1&keywords=Practical+Malware+Analysis" target="_blank" rel="noopener">Practical Malware Analysis</a></li>
+<li><a href="https://securedorg.github.io/RE101/" target="_blank" rel="noopener">https://securedorg.github.io/RE101/</a></li>
+<li><a href="https://www.malwaretech.com/beginner-malware-reversing-challenges" target="_blank" rel="noopener">https://www.malwaretech.com/beginner-malware-reversing-challenges</a></li>
+<li><a href="https://azeria-labs.com/writing-arm-assembly-part-1/" target="_blank" rel="noopener">https://azeria-labs.com/writing-arm-assembly-part-1/</a> (GREAT ARM TUTORIALS)</li>
+<li><a href="https://github.com/michalmalik/osx-re-101" target="_blank" rel="noopener">https://github.com/michalmalik/osx-re-101</a> (Nice resources for macOS)</li>
+<li><a href="https://www.youtube.com/channel/UCVFXrUwuWxNlm6UNZtBLJ-A" target="_blank" rel="noopener">MalwareAnalysisForHedgehogs channel</a></li>
+<li><a href="https://www.youtube.com/c/hasherezade" target="_blank" rel="noopener">hasherezade video tutorials</a></li>
+<li><a href="http://opensecuritytraining.info/ReverseEngineeringMalware.html" target="_blank" rel="noopener">http://opensecuritytraining.info</a></li>
+</ul>
+<p>So, no need for me to do another one ;)</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p>this has been written by me for fun purposes, don't take it serious!</p></div><br><div class="tags"><a href="/tags/binary-analysis/"><i class="fa fa-tag"></i>binary analysis</a><a href="/tags/reversing/"><i class="fa fa-tag"></i>reversing</a></div><div class="post-nav"><a class="pre" href="/2018-07-23-hardware_101/">Hardware 101 - I have this $device... and now?</a><a class="next" href="/2018-07-06-memory_skrolli/">Tinkering the memory</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/low-level/" style="font-size: 15px;">low level</a> <a href="/tags/platform/" style="font-size: 15px;">platform</a> <a href="/tags/SMM/" style="font-size: 15px;">SMM</a> <a href="/tags/firmware/" style="font-size: 15px;">firmware</a> <a href="/tags/prolog/" style="font-size: 15px;">prolog</a> <a href="/tags/binary-analysis/" style="font-size: 15px;">binary analysis</a> <a href="/tags/reversing/" style="font-size: 15px;">reversing</a> <a href="/tags/haskell/" style="font-size: 15px;">haskell</a> <a href="/tags/bios/" style="font-size: 15px;">bios</a> <a href="/tags/hardware/" style="font-size: 15px;">hardware</a> <a href="/tags/smt-solvers/" style="font-size: 15px;">smt solvers</a> <a href="/tags/malware/" style="font-size: 15px;">malware</a> <a href="/tags/talks/" style="font-size: 15px;">talks</a> <a href="/tags/research/" style="font-size: 15px;">research</a> <a href="/tags/science/" style="font-size: 15px;">science</a> <a href="/tags/misc/" style="font-size: 15px;">misc</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020-06-19-how-to-research/">How Do I Do Research?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-08-15-system-managing-god/">SMMMmmmm - when root is not enough</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04-28-first-steps-into-the-bios/">Learning about the BIOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-10-03-logicvsmalware/">Logic & binaries</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-08-03-firmware_101/">Firmware 101 - How to get the code</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-23-hardware_101/">Hardware 101 - I have this $device... and now?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-20-genRE/">/me on reverse engineering</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-06-memory_skrolli/">Tinkering the memory</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-03-hsandprolog/">Prolog vs Haskell</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-06-09-prolog08/">PROLOG - Part 8</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">barbie's notes.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.1" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js"></script><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.1"></script></div></body></html>
