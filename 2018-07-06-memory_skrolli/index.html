@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Tinkering the memory | barbie's notes</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.1"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Tinkering the memory</h1><a id="logo" href="/.">barbie's notes</a><p class="description">my not-professional-at-all blog</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> start</i></a><a href="/archives/"><i class="fa fa-archive"> oldies</i></a><a href="/about/"><i class="fa fa-user"> /me</i></a><a href="/talks/"><i class="fa fa-users"> IRL</i></a><a href="/credits/"><i class="fa fa-heart"> credits</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Tinkering the memory</h1><div class="post-meta">2018-07-05<span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 1.6k</span><span class="post-meta-item-text"> Words</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i><span class="post-count"> 10</span><span class="post-meta-item-text"> Minutes</span></span></span></div><div class="post-content"><h3 id="Reverse-Engineering"><a href="#Reverse-Engineering" class="headerlink" title="Reverse Engineering"></a>Reverse Engineering</h3><p>I have been writing lots of notes on PROLOG and logical programming and people keep asking me, why I never write about reverse engineering. So I decide to give it a try.</p>
+<p>I will start with stuff that I think are important for reverse engineering. It will be a bit different of the approaches I see on online tutorials, so I won’t be mad or sad if this notes are not helpful for you. BUT I will be REALLY happy if someone finds it useful!</p>
+<a id="more"></a>
+<h4 id="What-am-I-going-to-write-about-then"><a href="#What-am-I-going-to-write-about-then" class="headerlink" title="What am I going to write about then?"></a>What am I going to write about then?</h4><p>I know there are so many good sources to learn about all the basics of reverse engineering and uncountable RE101 online labs. They are all so nicely written and interesting, there is no need for me to do another one, right?</p>
+<p>So what I am going to do is to write some notes on things I wish I knew before, things I am learning now and things that I am curious about.</p>
+<h4 id="Memory-Analysis"><a href="#Memory-Analysis" class="headerlink" title="Memory Analysis"></a>Memory Analysis</h4><p>To perform memory analysis of an infected system is extremely complex and super exciting! To extract artifacts relevant to malware analysis or to perform some kind of forensic work for an incident response task is trilling me right now. I am still not sure how popular the topic is in the context of reverse engineering, but when analysing malware, a good memory analysis can help identifying the behaviour and explain how and what it was “touched” in the infected system by the malware.</p>
+<p>As always, before starting any kind of reverse engineering tasks, you need to define the questions to be answered. In the case of analysing memory, normally you want to find out:</p>
+<ul>
+<li>Which processes were running when the snapshot was taken?</li>
+<li>Which processes existed before the attack / infection?</li>
+<li>What was the end goal of the malware?</li>
+<li>Any suspicious DLL modules?</li>
+<li>And what about the strings in the process?</li>
+<li>And what about URLs or IP addresses associated with a process?</li>
+<li>And what about the files associated with a process?</li>
+<li>Can we dump / extract files associated to the process?</li>
+</ul>
+<h4 id="Starting-sLOWly"><a href="#Starting-sLOWly" class="headerlink" title="Starting sLOWly"></a>Starting sLOWly</h4><p>First of all, we should understand the memory. Lucky us, they are also built using the same logic gates you have everywhere else! There are two types of memory in our computer - one which is persistent and one that .. yeah..  In an higher level of abstraction, it is called <em>RAM (or random-access memory)</em>. So RAM is the working memory of a computer, it holds the information that is being executed by the computer like RIGHT NOW and as such it is a crucial component for a computer to operate (and a good place to act leaving not much traces).</p>
+<h4 id="The-logic-gates-of-the-Memory"><a href="#The-logic-gates-of-the-Memory" class="headerlink" title="The logic gates of the Memory"></a>The logic gates of the Memory</h4><p>To store information, the memory uses a latch called AND-OR-LATCH, which is pretty easy to understand:</p>
+<pre class="line-numbers language-text"><code class="language-text">   +----------------------------------+
+   |       ____                       |
+   +-)>- --\   `.           ____      |
+            |    >----------|   `.    |
+set--------/___.'    |`.    |     )---+---- output
+reset ---------------|  o---|___.'
+                     |.'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Of course, inside our computers, it is a bit more complicated - i.e. we have gates for Write-Enable, we store more than one bit of data and so on. But as you see, the basic idea is simple, you just need to scale it up ;) Adding another level up to what is called <em>gated latch</em>, and grouping them in a clever way, we get what most of you already know: Registers! Our 32-bit-registers are nothing more than 32 latches built together. The same for our 64-bit-register. The difference here is that they are not side by side - as they used to be in the old 8-bit-machines - but organized as a matrix. So for the 256-bit-memory we have the 16x16 Matrix. Got it? Good!</p>
+<blockquote>
+<p>Latch because the set value is persistent until a signal for setting or resetting is received.</p>
+</blockquote>
+<p>And how can we access the right row x column bit? We use MEMORY ADDRESSES! To convert the address into the right position, we use a component called multiplexer - which can also be built from logic gates! So to address 256-bit-memory, we use 8-bit-addresses - 4-bit for the row and 4-bit for the column. I could go on and scale up, but fast forwarding it, at some point we have 32-bit addresses, which can address a gigabyte of memory! The most important take away here is: with this address system, we are able to access ANY memory location at ANY time in ANY random order we may want / need.</p>
+<p>Trivia: an old SRAM board had 8 modules, each with 32 submodules, which one of them with 4 smaller modules and each of them comprises a matrix 128x64 bits, making a total of 32 768 x 32 x 8 bits ~ 8 million bits (aka 1 MB) in total!</p>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>Lots of people don’t know how the OS takes care of the memory usage. And that’s good ;) I mean, how painful would it be if every single developer or even users needed to know it. This is one of the “magical” pieces of code hidden in the low level world. But for us, reverse engineers, it is very important to understand how it works from the inside out!</p>
+<p>To make it easier - you can imagine the memory as a large large large array for storing data, but this is not precise, since the data is not stored linearly and all this heap/stack blub is IMPLEMENTED! But… let’s continue…</p>
+<p>There are three different memory “types” - not 50 ;) - automatic, static and dynamic. I am going to talk about the <em>Stack</em> and the <em>Heap</em>. Simple explained one could say that in the Stack you find the local variables and in the heap you find variables that are kept alive until the end of the program, like global variables, constants and all the variables declared in C with the “static” keyword.</p>
+<p>It would look like this in the memory:</p>
+<pre class="line-numbers language-text"><code class="language-text">          +---------+
+          |         |   STACK
+          +---------+
+          |         |
+          +---------+
+          |   ...   |
+          |   ...   |
+          |   ...   |
+          |   ...   |
+          |         |
+          +---------+   HEAP
+          |         |
+          +---------+
+          |         |
+          +---------+
+          |         |
+          +---------+
+          |         |
+          +---------+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>There is more data being allocated in the memory when a process is loaded. This data can be, i.e.:</p>
+<ul>
+<li>.text - source code of the program</li>
+<li>.BSS (Block Started by Symbol) - not initialized a symbol</li>
+<li>.data - Initial data</li>
+<li>.heap - our global variables</li>
+<li>.stack - our local variables</li>
+</ul>
+<h4 id="The-HEAP"><a href="#The-HEAP" class="headerlink" title="The HEAP"></a>The HEAP</h4><p>I could not define it better myself, so here is a great definition from <a href="#EldadE">Eldad Eilam</a>:</p>
+<p>“A heap is a managed memory region that allows for the dynamic allocation of variable-sized blocks of memory in runtime. A program simply requests a block of a certain size and receives a pointer to the newly allocated block (assuming that enough memory is available). Heaps are managed either by software libraries that are shipped alongside programs or by the operating system.</p>
+<p>Heaps are typically used for variable-sized objects that are used by the program or for objects that are too big to be placed on the stack. For reversers, locating heaps in memory and properly identifying heap allocation and freeing routines can be helpful, because it contributes to the overall understanding of the program’s data layout. For instance, if you see a call to what you know is a heap allocation routine, you can follow the flow of the procedure’s return value throughout the program and see what is done with the allocated block, and so on. Also, having accurate size information on heap-allocated objects (block size is always passed as a parameter to the heap allocation routine) is another small hint towards program comprehension.”</p>
+<h4 id="The-STACK"><a href="#The-STACK" class="headerlink" title="The STACK"></a>The STACK</h4><p>Stacks are managed as simple LIFO (last in, first out) data structures, where items are “pushed” and “popped” onto them. Memory for stacks is typically allocated from the top down, meaning that the highest addresses are allocated and used first and that the stack grows “backwards” toward the lower addresses. When a function is called during runtime, a memory block is pilled over. In this block there are references to all variables created or allocated in the called function. When the function returns, the block is deallocated.</p>
+<p>As one can see, the variables allocated in the stack have a function lifetime.</p>
+<p>Each pilled block is called <em>Stack frame</em>. In each frame one has the variables passed to the function parameters, the return address and a pointer called <em>frame pointer</em>, that represents the former top of the pile. Also there is a area for variables created inside the function (local variables).</p>
+<pre class="line-numbers language-text"><code class="language-text">            +-----------+
+            | local     |
+            | variables |
+            +-----------+
+            | old top   |
+            | of pile   |  STACK
+            +-----------+  FRAME
+            | return    |
+            | address   |
+            +-----------+
+            | function  |
+            | params    |
+            +-----------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This way, for each called function we pilled a stack frame above the function pile. This top of pile always contain the lowest address of the memory. This way, any address lower than the address of the top of the pile is invalid and any address higher than it is a valid stack frame.</p>
+<pre class="line-numbers language-text"><code class="language-text">            lowest address
+            +-----------+ <---- stack pointer (sp) | local variables +-----------+ old top <---- frame (fp) +------ of pile return address function params +-----> | old top   |
+    +-------| of pile   |
+    |       +-----------+
+    |       | return    |
+    |       | address   |
+    |       +-----------+
+    |       | function  |
+    |       | params    |
+    |       +-----------+
+    |       | local     |
+    |       | variables |
+    |       +-----------+
+    +-----> | old top   |
+    +------ | of pile   |
+    |       +-----------+
+    |       | return    |
+    |       | address   |
+    |       +-----------+
+    |       | function  |
+    |       | params    |
+    |       +-----------+
+    |       | local     |
+    |       | variables |
+    |       +-----------+
+    +-----> | old top   |
+    +------ | of pile   |
+    |       +-----------+
+    |       | return    |
+    |       | address   |
+    |       +-----------+
+    |       | function  |
+    |       | params    |
+    |       +-----------+
+            highest address<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></----></code></pre>
+<p>The stack pointer points to the top of the pile. During the execution, this pointer can be updated, as we create more variables i.e. to make the movement in the stack frame, there is another pointer called frame pointer, responsible for storing a reference to the top of the pile before the function is called. Due to its position in the stack frame - unlike the stack pointer, its position is constant - it is easy to move to the parameters until the return address and local variables.</p>
+<p>The way the stack works is by “stacking” data into it, one “push” data in the stack, which puts the variable/data into the stack and moves the stack pointer down, you can’t remove an item from anywhere in the stack, you can always only remove (pop) the <em>last</em> item you added (pushed).</p>
+<h5 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h5><p><a name="EldadE"></a> <em>Eldad Eilam. 2005. Reversing: Secrets of Reverse Engineering. John Wiley &amp; Sons, Inc., New York, NY, USA.</em></p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p>this has been written by me for fun purposes, don't take it serious!</p></div><br><div class="tags"><a href="/tags/binary-analysis/"><i class="fa fa-tag"></i>binary analysis</a><a href="/tags/reversing/"><i class="fa fa-tag"></i>reversing</a></div><div class="post-nav"><a class="pre" href="/2018-07-20-genRE/">/me on reverse engineering</a><a class="next" href="/2018-07-03-hsandprolog/">Prolog vs Haskell</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/prolog/" style="font-size: 15px;">prolog</a> <a href="/tags/low-level/" style="font-size: 15px;">low level</a> <a href="/tags/platform/" style="font-size: 15px;">platform</a> <a href="/tags/SMM/" style="font-size: 15px;">SMM</a> <a href="/tags/haskell/" style="font-size: 15px;">haskell</a> <a href="/tags/firmware/" style="font-size: 15px;">firmware</a> <a href="/tags/binary-analysis/" style="font-size: 15px;">binary analysis</a> <a href="/tags/reversing/" style="font-size: 15px;">reversing</a> <a href="/tags/hardware/" style="font-size: 15px;">hardware</a> <a href="/tags/smt-solvers/" style="font-size: 15px;">smt solvers</a> <a href="/tags/malware/" style="font-size: 15px;">malware</a> <a href="/tags/talks/" style="font-size: 15px;">talks</a> <a href="/tags/research/" style="font-size: 15px;">research</a> <a href="/tags/science/" style="font-size: 15px;">science</a> <a href="/tags/misc/" style="font-size: 15px;">misc</a> <a href="/tags/bios/" style="font-size: 15px;">bios</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020-06-19-how-to-research/">How Do I Do Research?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-08-15-system-managing-god/">SMMMmmmm - when root is not enough</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04-28-first-steps-into-the-bios/">Learning about the BIOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-10-03-logicvsmalware/">Logic & binaries</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-08-03-firmware_101/">Firmware 101 - How to get the code</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-23-hardware_101/">Hardware 101 - I have this $device... and now?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-20-genRE/">/me on reverse engineering</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-06-memory_skrolli/">Tinkering the memory</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-07-03-hsandprolog/">Prolog vs Haskell</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-06-09-prolog08/">PROLOG - Part 8</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2024 <a href="/." rel="nofollow">barbie's notes.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.1" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js"></script><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.1"></script></div></body></html>
