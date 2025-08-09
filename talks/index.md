@@ -4,7 +4,9 @@ title: barbie's IRL
 short_description: Register of public information
 ---
 
-I am always available for interesting side projects related to reverse engineering and space stuff, as well as technical talks and trainings worldwide. If you want to chat about security, CPU architecture, books, or anything else, don't hesitate in reaching out. You can contact me per e-mail (everything at this domain) or DM me on [mastodon](https://chaos.social/@barbie) :) 
+I am always available for interesting side projects related to reverse engineering and space stuff, as well as technical talks and trainings worldwide. 
+If you want to chat about security, CPU architecture, books, wine, or anything else, don't hesitate in reaching out.  
+You can contact me per e-mail (everything at this domain) or DM me on [mastodon](https://chaos.social/@barbie) :) 
 
 ## community
 
@@ -13,6 +15,7 @@ I am always available for interesting side projects related to reverse engineeri
 [hack.lu](https://2019.hack.lu/): an open and free playground where people can discuss the implication of new technologies in society
 [x86 assembly ftw](https://wiki.chaosdorf.de/Assembly_x86): chaosdorf's x86 asm group
 [reverse engineering group](https://wiki.chaosdorf.de/52455645525345): chaosdorf's reverse engineering group
+[Disobey](https://disobey.fi): nordic hacker conference
 
 ## future
 
